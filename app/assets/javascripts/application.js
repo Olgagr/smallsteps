@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree ./lib
+//= require lib/underscore
+//= require lib/backbone
+//= require lib/marionette

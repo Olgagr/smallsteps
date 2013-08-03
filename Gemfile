@@ -7,7 +7,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
-gem 'devise'
+gem 'devise', '3.0.0'
+gem 'compass-rails', '~> 2.0.alpha.0'
 
 group :doc do
   gem 'sdoc', require: false
