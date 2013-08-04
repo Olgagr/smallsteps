@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation/foundation
+//= require foundation/foundation.forms
 //= require lib/underscore
 //= require lib/backbone
 //= require lib/marionette
+
+/* @todo move it into other file */
+$(document).foundation();

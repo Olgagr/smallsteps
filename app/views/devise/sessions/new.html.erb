@@ -1,0 +1,38 @@
+<h2>Sign in</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'custom'} ) do |f| %>
+
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :email %>
+      <%= f.email_field :email, :autofocus => true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="row">
+      <div class="large-4 columns">
+        <div class="row">
+          <%= f.label :remember_me, class: 'large-5 columns' do %>
+            <%= f.check_box :remember_me %><span class="custom checkbox"></span> Remember me
+          <% end %>
+          <%= link_to 'Forgot your password?', new_password_path(resource_name), class: 'large-7 columns' %>
+        </div>
+      </div>
+    </div>
+  <% end -%>
+
+  <div class="row">
+    <div class="large-4 columns">
+      <%= f.submit 'Sign in', class: 'button success' %>
+    </div>
+  </div>
+<% end %>
+
