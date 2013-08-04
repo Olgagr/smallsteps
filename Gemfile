@@ -9,7 +9,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'devise', '3.0.0'
 gem 'compass-rails', '~> 2.0.alpha.0'
-gem 'high_voltage'
+gem 'high_voltage', '1.2.4'
 
 group :doc do
   gem 'sdoc', require: false
@@ -31,7 +31,7 @@ group :test do
   gem 'shoulda-matchers', '2.2.0'
   gem 'faker', '1.1.2'
   gem 'capybara', '2.1.0'
+  gem 'selenium-webdriver', '2.33.0'
   gem 'database_cleaner', '1.0.1'
   gem 'launchy', '2.3.0'
-  gem 'poltergeist', '1.3.0'
 end
