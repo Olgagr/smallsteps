@@ -97,6 +97,7 @@ GEM
       childprocess (>= 0.2.3)
       guard (>= 1.1)
       spork (>= 0.8.4)
+    high_voltage (1.2.4)
     hike (1.2.3)
     http_parser.rb (0.5.3)
     i18n (0.6.4)
@@ -225,6 +226,7 @@ DEPENDENCIES
   guard (= 1.8.1)
   guard-rspec (= 3.0.2)
   guard-spork (= 1.5.1)
+  high_voltage
   jbuilder (~> 1.2)
   jquery-rails
   launchy (= 2.3.0)

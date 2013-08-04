@@ -1,5 +1,5 @@
 Smallsteps::Application.routes.draw do
-  root 'smallsteps#home'
+  root 'high_voltage/pages#show', id: 'home'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
