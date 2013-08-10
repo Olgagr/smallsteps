@@ -33,4 +33,8 @@ Smallsteps::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  #facebook
+  config.facebook_key = '212539978905098'
+  config.facebook_secret = 'f5764a4249c17f4d2e8a641a36ae1fa2'
 end

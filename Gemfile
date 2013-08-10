@@ -10,6 +10,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise', '3.0.0'
 gem 'compass-rails', '~> 2.0.alpha.0'
 gem 'high_voltage', '1.2.4'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :doc do
   gem 'sdoc', require: false
