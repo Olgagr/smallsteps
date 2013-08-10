@@ -1,21 +1,24 @@
 class User < ActiveRecord::Base
 
-  devise :omniauthable, :omniauth_providers => [:facebook]
+  attr_accessor :login
+
+  devise :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         :authentication_keys => [:login]
 
-  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    unless user
-      user = User.create(
-          provider: auth.provider,
-          uid: auth.uid,
-          email: auth.info.email,
-          password: Devise.friendly_token[0, 20]
-      )
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["username = :value OR lower(email) = :value", { :value => login }]).first
+    else
+      where(conditions).first
     end
-    user
+  end
+
+  def email_required?
+    false
   end
 
 end

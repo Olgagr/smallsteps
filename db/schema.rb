@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130810071830) do
+ActiveRecord::Schema.define(version: 20130810162858) do
 
   create_table "steps", force: true do |t|
     t.text     "description"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20130810071830) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
+    t.string   "email",                  default: ""
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20130810071830) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.string   "username"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

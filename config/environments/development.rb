@@ -30,4 +30,8 @@ Smallsteps::Application.configure do
   #facebook
   config.facebook_key = '212539978905098'
   config.facebook_secret = 'f5764a4249c17f4d2e8a641a36ae1fa2'
+
+  #twitter
+  config.twitter_key = 'qHz6Ictk9nUmNdb3PeEDNA'
+  config.twitter_secret = 'LqB7cUvG2v4QOb3HusbTn1S59SETsYsfxezBhBtgE'
 end
