@@ -257,9 +257,9 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   launchy (= 2.3.0)
-  omniauth
-  omniauth-facebook
-  omniauth-twitter
+  omniauth (= 1.1.4)
+  omniauth-facebook (= 1.4.1)
+  omniauth-twitter (= 1.0.0)
   pg (= 0.15.1)
   rails (= 4.0.0)
   rspec-rails (~> 2.0)

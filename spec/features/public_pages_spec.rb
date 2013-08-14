@@ -11,7 +11,7 @@ feature 'Public pages' do
     visit root_path
     click_link 'Sign in'
 
-    expect(page).to have_css 'input#user_email'
+    expect(page).to have_css 'input#user_login'
     expect(page).to have_css 'input#user_password'
     expect(page).to have_css 'input[value="Sign in"]'
 
@@ -24,7 +24,7 @@ feature 'Public pages' do
     visit root_path
     click_link 'Sign up'
 
-    expect(page).to have_css 'input#user_email'
+    expect(page).to have_css 'input#user_username'
     expect(page).to have_css 'input#user_password'
     expect(page).to have_css 'input#user_password_confirmation'
     expect(page).to have_css 'input[value="Sign up"]'
