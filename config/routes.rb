@@ -1,4 +1,6 @@
 Smallsteps::Application.routes.draw do
+
+  get  'pages/goals' => 'high_voltage/pages#show', id: 'goals'
   root 'high_voltage/pages#show', id: 'home'
 
   devise_for :users,
