@@ -17,6 +17,8 @@
 //= require lib/underscore
 //= require lib/backbone
 //= require lib/marionette
+//= require backbone/config/marionette/template_cache
+//= require backbone/config/marionette/renderer
 //= require backbone/app
 //= require_tree ./backbone/views
 
