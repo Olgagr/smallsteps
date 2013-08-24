@@ -68,6 +68,11 @@ GEM
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.3)
     diff-lcs (1.2.4)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -248,6 +253,7 @@ DEPENDENCIES
   compass-rails (~> 2.0.alpha.0)
   database_cleaner (= 1.0.1)
   devise (= 3.0.0)
+  eco (= 1.0.0)
   factory_girl_rails
   faker (= 1.1.2)
   guard (= 1.8.1)

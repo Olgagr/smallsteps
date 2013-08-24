@@ -1,12 +1,9 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
   factory :goal do
-    title "MyString"
-    description "MyText"
-    year 1
-    month 1
-    week 1
-    finished false
+    title 'Yearly goal'
+    description Faker::Lorem.paragraph
+    year 2013
   end
 end

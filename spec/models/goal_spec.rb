@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe Goal do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it 'returns false for finished attribute as default' do
+    expect(create(:goal).finished).to be_false
+  end
+
 end

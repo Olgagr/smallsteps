@@ -13,6 +13,7 @@ gem 'high_voltage', '1.2.4'
 gem 'omniauth', '1.1.4'
 gem 'omniauth-facebook', '1.4.1'
 gem 'omniauth-twitter', '1.0.0'
+gem 'eco', '1.0.0'
 
 group :doc do
   gem 'sdoc', require: false
