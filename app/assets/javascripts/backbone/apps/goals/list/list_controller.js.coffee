@@ -4,8 +4,19 @@ SmallSteps.module 'GoalsApp.List', (List, App, Backbone, Marionette, $, _) ->
 
     initialize: ->
       App.request 'entities:goals:list', (goals) =>
-        listView = @getGoalsListView(goals)
-        @show listView
+        @layoutView = @getLayoutView()
+
+        @listenTo @layoutView, 'goals:subnav:clicked', (link) -> App.vent.trigger 'goals:subnav:clicked', link
+
+        @listenTo @layoutView, 'show', =>
+          goalsListView = @getGoalsListView(goals)
+          @layoutView.goalsContentRegion.show goalsListView
+
+        @show @layoutView
+
+
+    getLayoutView: ->
+      new List.GoalsLayout()
 
     getGoalsListView: (goals) ->
       new List.GoalsList

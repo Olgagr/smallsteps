@@ -8,7 +8,12 @@ Smallsteps::Application.routes.draw do
                  omniauth_callbacks: 'auth/omniauth_callbacks'
              }
 
-  resources :goals, only: [:index]
+  resources :goals do
+    collection do
+      get :index
+      get 'year/:year_number' => 'goals#year'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,3 +1,3 @@
 @SmallSteps.module 'Views', (Views, App, Backbone, Marionette, $, _) ->
 
-  Views.CompositeView = Marionette.CompositeView.extend()
+  Views.Layout = Marionette.Layout.extend()

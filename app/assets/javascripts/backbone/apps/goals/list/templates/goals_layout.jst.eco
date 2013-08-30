@@ -1,0 +1,8 @@
+<dl class="sub-nav" id="goals-nav-region">
+  <dt>Goals:</dt>
+  <dd class="active"><a href="#">All</a></dd>
+  <dd><a href="/goals/yearly">Yearly</a></dd>
+  <dd><a href="#">Monthly</a></dd>
+  <dd><a href="#">Weekly</a></dd>
+</dl>
+<div id="goals-content-region"></div>
