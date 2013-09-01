@@ -3,7 +3,10 @@
   App = new Marionette.Application
 
   App.addRegions
-    mainRegion: '#main-region'
+    mainRegion:   '#main-region'
+    modalRegion:
+      selector:   '#modal-region'
+      regionType: Marionette.Region.Modal
 
   App.on 'initialize:after', ->
     Backbone.history.start(pushState: true) if Backbone.history

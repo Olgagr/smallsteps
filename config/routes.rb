@@ -12,6 +12,7 @@ Smallsteps::Application.routes.draw do
     collection do
       get :index
       get 'year/:year_number' => 'goals#year'
+      match '*path' => 'high_voltage/pages#show', id: 'goals', via: :get
     end
   end
 

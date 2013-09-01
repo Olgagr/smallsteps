@@ -19,5 +19,8 @@ do (Backbone) ->
     getRegistrySize: ->
       _.size @_registry
 
+    navigate: (url, options) ->
+      Backbone.history.navigate url, options
+
 
 

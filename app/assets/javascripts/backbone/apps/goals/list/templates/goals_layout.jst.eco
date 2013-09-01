@@ -1,8 +1,18 @@
 <dl class="sub-nav" id="goals-nav-region">
   <dt>Goals:</dt>
-  <dd class="active"><a href="#">All</a></dd>
+  <dd class="active"><a href="/pages/goals">All</a></dd>
   <dd><a href="/goals/yearly">Yearly</a></dd>
   <dd><a href="#">Monthly</a></dd>
   <dd><a href="#">Weekly</a></dd>
 </dl>
+
+<a href="#" data-add-goal="true">Click Me For A Modal</a>
+
 <div id="goals-content-region"></div>
+
+<div id="myModal" class="reveal-modal">
+  <h2>Awesome. I have it.</h2>
+  <p class="lead">Your couch.  It is mine.</p>
+  <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>

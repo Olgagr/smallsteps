@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require foundation/foundation
 //= require foundation/foundation.forms
+//= require foundation/foundation.reveal
 //= require lib/underscore
 //= require lib/backbone
 //= require lib/marionette
