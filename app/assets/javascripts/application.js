@@ -18,6 +18,7 @@
 //= require lib/underscore
 //= require lib/backbone
 //= require lib/marionette
+//= require backbone.syphon.js
 //= require_tree ./backbone/config
 //= require backbone/app
 //= require_tree ./backbone/entities

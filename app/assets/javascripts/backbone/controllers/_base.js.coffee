@@ -4,7 +4,7 @@
 
     constructor: (options = {}) ->
       @region = options.region or App.request 'default:region'
-      Marionette.Controller::constructor.apply(@, options)
+      Marionette.Controller::constructor.call(@, options)
       @_instance_id = _.uniqueId('controller')
       App.execute 'register:instance', @, @_instance_id
 

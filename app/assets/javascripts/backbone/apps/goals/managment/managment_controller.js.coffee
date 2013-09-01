@@ -2,7 +2,21 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
 
   Managment.Controller = App.Controllers.Base.extend
 
-    initialize: (options) ->
-      managmentView = new Managment.FormView
+    initialize: ->
+      {model, collection} = @options
+
+      managmentView = @getFormView(model)
+
+      @listenTo managmentView, 'btn:save:clicked', (goal) ->
+        collection.add(goal)
+        goal.save()
+
       @show managmentView
+
+    getFormView: (model) ->
+      viewModel = model ? new App.Entities.Goal()
+      new Managment.FormView
+        model: viewModel
+
+
 

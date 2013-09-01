@@ -1,1 +1,26 @@
-this managment form
+<form>
+  <fieldset>
+    <legend>Add New Goal</legend>
+    <div class="row">
+      <div class="large-12 columns">
+        <label for="goal-title">Title</label>
+        <input type="text" name="title" id="goal-title">
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-12 columns">
+        <label for="goal-description">Description</label>
+        <textarea id="goal-description" name="description"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-6 columns">
+        <label for="goal-year">Year</label>
+        <input type="text" name="year" id="goal-year">
+      </div>
+    </div>
+    <button class="button secondary" data-type="close" type="button">Cancel</button>
+    <button class="button">Save</button>
+  </fieldset>
+</form>
+<a class="close-reveal-modal">&#215;</a>

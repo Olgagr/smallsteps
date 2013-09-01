@@ -15,9 +15,7 @@ SmallSteps.module 'GoalsApp', (GoalsApp, App, Backbone, Marionette, $, _) ->
       log 'yearly goals'
 
     manageGoal: (args) ->
-      new GoalsApp.Managment.Controller
-        region: App.modalRegion
-        args: args
+      new GoalsApp.Managment.Controller _.extend(region: App.modalRegion, args)
 
 
   App.addInitializer ->
