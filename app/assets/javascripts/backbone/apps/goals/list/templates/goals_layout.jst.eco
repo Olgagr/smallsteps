@@ -6,7 +6,7 @@
   <dd><a href="#">Weekly</a></dd>
 </dl>
 
-<a href="#" data-add-goal="true">Click Me For A Modal</a>
+<a href="#" data-add-goal="true" class="button success">Add Goal</a>
 
 <div id="goals-content-region"></div>
 
