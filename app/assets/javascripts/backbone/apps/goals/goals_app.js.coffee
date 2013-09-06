@@ -27,3 +27,6 @@ SmallSteps.module 'GoalsApp', (GoalsApp, App, Backbone, Marionette, $, _) ->
 
   App.vent.on 'add:goal:clicked', (args) ->
     API.manageGoal args
+
+  App.vent.on 'edit:goal:clicked', (args) ->
+    API.manageGoal args

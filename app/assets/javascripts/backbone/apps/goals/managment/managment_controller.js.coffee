@@ -4,11 +4,11 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
 
     initialize: ->
       {model, collection} = @options
-
       managmentView = @getFormView(model)
 
       @listenTo managmentView, 'btn:save:clicked', (goal) ->
-        collection.add(goal)
+        if goal.isNew()
+          collection.add(goal)
         goal.save()
 
       @show managmentView

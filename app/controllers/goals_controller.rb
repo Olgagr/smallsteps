@@ -16,6 +16,13 @@ class GoalsController < ApplicationController
     end
   end
 
+  def update
+    goal = Goal.find(params[:id])
+    if goal.update_attributes(goal_params)
+      render json: goal
+    end
+  end
+
   private
   def goal_params
     params.require(:goal).permit(:title, :description, :year, :month, :week, :finished, :goal_id)

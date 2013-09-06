@@ -4,19 +4,19 @@
     <div class="row">
       <div class="large-12 columns">
         <label for="goal-title">Title</label>
-        <input type="text" name="title" id="goal-title">
+        <input type="text" name="title" id="goal-title" value="<%= @title %>">
       </div>
     </div>
     <div class="row">
       <div class="large-12 columns">
         <label for="goal-description">Description</label>
-        <textarea id="goal-description" name="description"></textarea>
+        <textarea id="goal-description" name="description"><%= @description %></textarea>
       </div>
     </div>
     <div class="row">
       <div class="large-6 columns">
         <label for="goal-year">Year</label>
-        <input type="text" name="year" id="goal-year">
+        <input type="text" name="year" id="goal-year" value="<%= @year %>">
       </div>
     </div>
     <button class="button secondary" data-type="close" type="button">Cancel</button>
