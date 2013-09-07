@@ -15,8 +15,12 @@ SmallSteps.module 'GoalsApp', (GoalsApp, App, Backbone, Marionette, $, _) ->
       log 'yearly goals'
 
     manageGoal: (args) ->
-      new GoalsApp.Managment.Controller _.extend(region: App.modalRegion, args)
+      controller = new GoalsApp.Managment.Controller _.extend(region: App.modalRegion, args)
+      controller.manageGoal()
 
+    deleteGoal: (args) ->
+      controller = new GoalsApp.Managment.Controller _.extend(region: App.modalRegion, args)
+      controller.deleteGoal()
 
   App.addInitializer ->
     new GoalsApp.Router
@@ -30,3 +34,6 @@ SmallSteps.module 'GoalsApp', (GoalsApp, App, Backbone, Marionette, $, _) ->
 
   App.vent.on 'edit:goal:clicked', (args) ->
     API.manageGoal args
+
+  App.vent.on 'delete:goal:clicked', (args) ->
+    API.deleteGoal args

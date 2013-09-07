@@ -1,0 +1,6 @@
+<h3 class="subheader center-text">Are you sure?</h3>
+<div class="center-text">
+  <button class="button secondary small" data-type="close">Cancel</button>
+  <button class="button alert small" data-type="delete">Delete</button>
+</div>
+<a class="close-reveal-modal">&#215;</a>

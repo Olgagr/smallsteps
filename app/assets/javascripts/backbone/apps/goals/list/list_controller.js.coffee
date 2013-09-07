@@ -15,8 +15,11 @@ SmallSteps.module 'GoalsApp.List', (List, App, Backbone, Marionette, $, _) ->
         @listenTo @layoutView, 'show', =>
           @goalsListView = @getGoalsListView(goals)
 
-          @listenTo @goalsListView, 'edit:goal:clicked', (args) =>
+          @listenTo @goalsListView, 'edit:goal:clicked', (args) ->
             App.vent.trigger 'edit:goal:clicked', args
+
+          @listenTo @goalsListView, 'itemview:delete:goal:clicked', (view, obj) ->
+            App.vent.trigger 'delete:goal:clicked', obj
 
           @layoutView.goalsContentRegion.show @goalsListView
 

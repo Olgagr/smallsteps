@@ -23,6 +23,11 @@ class GoalsController < ApplicationController
     end
   end
 
+  def destroy
+    Goal.find(params[:id]).destroy
+    head :no_content
+  end
+
   private
   def goal_params
     params.require(:goal).permit(:title, :description, :year, :month, :week, :finished, :goal_id)
