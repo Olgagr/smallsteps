@@ -1,5 +1,7 @@
 class GoalsController < ApplicationController
 
+  before_filter :authenticate_user!
+
   def index
     render json: Goal.all
   end

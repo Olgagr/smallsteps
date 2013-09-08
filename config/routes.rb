@@ -1,20 +1,22 @@
 Smallsteps::Application.routes.draw do
 
   get  'pages/goals' => 'high_voltage/pages#show', id: 'goals'
-  root 'high_voltage/pages#show', id: 'home'
+  root 'high_voltage/pages#show', id: 'goals'
 
   devise_for :users,
              controllers: {
                  omniauth_callbacks: 'auth/omniauth_callbacks'
              }
 
-  resources :goals do
-    collection do
-      get :index
-      get 'year/:year_number' => 'goals#year'
-      match '*path' => 'high_voltage/pages#show', id: 'goals', via: :get
+  scope :api do
+    resources :goals do
+      collection do
+        get 'yearly/:year_number' => 'goals#year'
+      end
     end
   end
+
+  match '*path' => 'high_voltage/pages#show', id: 'goals', via: :get
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

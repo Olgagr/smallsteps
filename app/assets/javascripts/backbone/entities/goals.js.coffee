@@ -6,17 +6,29 @@ SmallSteps.module 'Entities', (Entities, App, Backbone, Marionette, $, _) ->
 
     model: Entities.Goal
 
-    url: '/goals'
+    url: '/api/goals'
 
 
 
   API =
-    getGoalsList: (callback) ->
+    getGoalsList: (goal_range, callback) ->
       collection = new Entities.Goals
       collection.fetch
         reset: true
+        url: "/api/#{goal_range}"
         success: (collection) ->
-          callback(collection)
+          callback collection
 
-  App.reqres.setHandler 'entities:goals:list', (callback) ->
-    API.getGoalsList(callback)
+    getYearlyGoals: (year, callback) ->
+      collection = new Entities.Goals
+      collection.fetch
+        reset: true
+        url: "/api/goals/yearly/#{year}"
+        success: (collection) ->
+          callback collection
+
+  App.reqres.setHandler 'entities:goals:list', (goal_range, callback) ->
+    API.getGoalsList goal_range, callback
+
+  App.reqres.setHandler 'entities:yearly_goals:list', (year, callback) ->
+    API.getYearlyGoals year, callback
