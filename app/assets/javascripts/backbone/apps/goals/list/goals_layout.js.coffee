@@ -26,3 +26,7 @@ SmallSteps.module 'GoalsApp.List', (List, App, Backbone, Marionette, $, _) ->
     onSubnavClicked: (link) ->
       @ui.subnav.find('.active').removeClass('active')
       link.closest('dd').addClass('active')
+
+    templateHelpers:
+      currentYear   : new Date().getFullYear()
+      currentMonth  : new Date().getMonth() + 1
