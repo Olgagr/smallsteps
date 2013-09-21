@@ -2,7 +2,7 @@
   <dt>Goals:</dt>
   <dd class="active"><a href="goals">All</a></dd>
   <dd><a href="goals/yearly/2013">Yearly</a></dd>
-  <dd><a href="#">Monthly</a></dd>
+  <dd><a href="goals/monthly/10">Monthly</a></dd>
   <dd><a href="#">Weekly</a></dd>
 </dl>
 

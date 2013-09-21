@@ -12,6 +12,7 @@ Smallsteps::Application.routes.draw do
     resources :goals do
       collection do
         get 'yearly/:year_number' => 'goals#year'
+        get 'monthly/:month_number' => 'goals#month'
       end
     end
   end

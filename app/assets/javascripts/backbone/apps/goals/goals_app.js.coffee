@@ -3,9 +3,10 @@ SmallSteps.module 'GoalsApp', (GoalsApp, App, Backbone, Marionette, $, _) ->
   GoalsApp.Router = Marionette.AppRouter.extend
 
     appRoutes:
-      '': 'goalsList'
-      'pages/goals' : 'goalsList'
-      'goals/yearly(/:year)': 'yearlyGoals'
+      ''                        : 'goalsList'
+      'pages/goals'             : 'goalsList'
+      'goals/yearly(/:year)'    : 'yearlyGoals'
+      'goals/monthly(/:month)'  : 'monthlyGoals'
 
 
   API =
@@ -16,6 +17,10 @@ SmallSteps.module 'GoalsApp', (GoalsApp, App, Backbone, Marionette, $, _) ->
     yearlyGoals: (year) ->
       controller = new GoalsApp.List.Controller
       controller.getGoalsList "goals/yearly/#{year}"
+
+    monthlyGoals: (month) ->
+      controller = new GoalsApp.List.Controller
+      controller.getGoalsList "goals/monthly/#{month}"
 
     manageGoal: (args) ->
       controller = new GoalsApp.Managment.Controller _.extend(region: App.modalRegion, args)
