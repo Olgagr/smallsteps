@@ -19,7 +19,7 @@ SmallSteps.module 'GoalsApp.List', (List, App, Backbone, Marionette, $, _) ->
 
     onLinkClicked: (e) ->
       $target = $(e.currentTarget)
-      @trigger 'goals:subnav:clicked', $target.attr 'href'
+      @trigger 'goals:subnav:clicked', $target
       @triggerMethod('subnav:clicked', $target)
       e.preventDefault()
 

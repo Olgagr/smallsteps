@@ -9,12 +9,7 @@ Smallsteps::Application.routes.draw do
              }
 
   scope :api do
-    resources :goals do
-      collection do
-        get ':year_number/:month_number' => 'goals#month'
-        get ':year_number' => 'goals#year'
-      end
-    end
+    resources :goals
   end
 
   match '*path' => 'high_voltage/pages#show', id: 'goals', via: :get

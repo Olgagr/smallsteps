@@ -1,6 +1,8 @@
 SmallSteps.module 'Entities', (Entities, App, Backbone, Marionette, $, _) ->
 
-  Entities.Goal = App.Model.Base.extend()
+  Entities.Goal = App.Model.Base.extend
+
+    rootUrl: '/api/goals'
 
   Entities.Goals = App.Collection.Base.extend
 
@@ -15,7 +17,7 @@ SmallSteps.module 'Entities', (Entities, App, Backbone, Marionette, $, _) ->
       collection = new Entities.Goals
       collection.fetch
         reset: true
-        url: "/api/#{goal_range}"
+        data: goal_range
         success: (collection) ->
           callback collection
 
