@@ -14,6 +14,7 @@ gem 'omniauth', '1.1.4'
 gem 'omniauth-facebook', '1.4.1'
 gem 'omniauth-twitter', '1.0.0'
 gem 'eco', '1.0.0'
+gem 'newrelic_rpm'
 
 group :doc do
   gem 'sdoc', require: false
@@ -23,6 +24,7 @@ group :development do
   gem 'guard', '1.8.1'
   gem 'guard-rspec', '3.0.2'
   gem 'guard-spork', '1.5.1'
+  gem 'quiet_assets'
 end
 
 group :development, :test do
