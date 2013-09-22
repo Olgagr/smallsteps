@@ -6,16 +6,6 @@ class GoalsController < ApplicationController
     render json: get_goals_list
   end
 
-  def year
-    yearly_goals = YearlyGoal.where(year: params[:year_number])
-    render json: yearly_goals
-  end
-
-  def month
-    monthly_goals = MonthlyGoal.where(year: params[:year_number], month: params[:month_number])
-    render json: monthly_goals
-  end
-
   def create
     goal = Goal.new(goal_params)
     if goal.save
