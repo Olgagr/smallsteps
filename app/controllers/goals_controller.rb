@@ -3,14 +3,7 @@ class GoalsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    if params[:yearNumber] && params[:monthNumber]
-      goals = MonthlyGoal.where(year: params[:yearNumber], month: params[:monthNumber])
-    elsif params[:yearNumber]
-      goals = YearlyGoal.where(year: params[:yearNumber])
-    else
-      goals = Goal.all
-    end
-    render json: goals
+    render json: get_goals_list
   end
 
   def year
@@ -45,6 +38,16 @@ class GoalsController < ApplicationController
   private
   def goal_params
     params.require(:goal).permit(:title, :description, :year, :month, :week, :finished, :goal_id)
+  end
+
+  def get_goals_list
+    if params[:yearNumber] && params[:monthNumber]
+      MonthlyGoal.where(year: params[:yearNumber], month: params[:monthNumber])
+    elsif params[:yearNumber]
+      YearlyGoal.where(year: params[:yearNumber])
+    else
+      Goal.all
+    end
   end
 
 end
