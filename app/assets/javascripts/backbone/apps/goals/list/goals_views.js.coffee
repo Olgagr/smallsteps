@@ -13,12 +13,18 @@ SmallSteps.module 'GoalsApp.List', (List, App, Backbone, Marionette, $, _) ->
     modelEvents: ->
       'change': -> @render()
 
+  List.NoItems = App.Views.ItemView.extend
+
+    template: 'goals/list/templates/goals_no_items'
+
 
   List.GoalsList = App.Views.CollectionView.extend
 
     itemView: List.GoalItem
 
     tagName: 'ul'
+
+    emptyView: List.NoItems
 
     initialize: ->
       @listenTo @, 'itemview:edit:goal:clicked', (view, obj) =>

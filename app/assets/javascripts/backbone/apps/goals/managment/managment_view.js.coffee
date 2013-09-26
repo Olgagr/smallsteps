@@ -14,6 +14,9 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
       @trigger 'btn:save:clicked', @model
       @closeModal()
 
+    onShow: ->
+      @$el.foundation('forms')
+
   Managment.DeletePromptView = App.Views.ItemView.extend
 
     template: 'goals/managment/templates/delete_prompt'

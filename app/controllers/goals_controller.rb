@@ -7,7 +7,7 @@ class GoalsController < ApplicationController
   end
 
   def create
-    goal = Goal.new(goal_params)
+    goal = params['type'].constantize.new(goal_params)
     if goal.save
       render json: goal
     end
