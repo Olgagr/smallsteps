@@ -6,7 +6,7 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
       {@model, @collection} = @options
 
     manageGoal: ->
-      managmentView = @getFormView(@model)
+      managmentView = @_getFormView(@model, @_getGoalType())
 
       @listenTo managmentView, 'btn:save:clicked', (goal) ->
         if goal.isNew()
@@ -16,7 +16,7 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
       @show managmentView
 
     deleteGoal: ->
-      deletePromptView = @getDeletePromptView(@model)
+      deletePromptView = @_getDeletePromptView(@model)
 
       @listenTo deletePromptView, 'btn:delete:clicked', (goal) ->
         goal.destroy()
@@ -24,14 +24,25 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
       @show deletePromptView
 
 
-    getFormView: (model) ->
+    _getFormView: (model, goalType) ->
       viewModel = model ? new App.Entities.Goal()
       new Managment.FormView
         model: viewModel
+        goalType: goalType
 
-    getDeletePromptView: (model) ->
+    _getDeletePromptView: (model) ->
       new Managment.DeletePromptView
         model: model
+
+    _getGoalType: ->
+      goalType = ''
+      url = window.location.pathname.split('/')
+      url.splice(0,2)
+      switch url.length
+        when 1 then goalType = 'yearly'
+        when 2 then goalType = 'monthly'
+        else goalType = 'weekly'
+      goalType
 
 
 

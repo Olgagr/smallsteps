@@ -8,6 +8,11 @@
       selector:   '#modal-region'
       regionType: Marionette.Region.Modal
 
+  App.GOALS_TYPES =
+    YEARLY  : 'yearly'
+    MONTHLY : 'monthly'
+    WEEKLY  : 'weekly'
+
   App.on 'initialize:after', ->
     Backbone.history.start(pushState: true) if Backbone.history
 

@@ -17,6 +17,20 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
     onShow: ->
       @$el.foundation('forms')
 
+    serializeData: ->
+      _.extend(@model.toJSON(), goalType: @options.goalType)
+
+    templateHelpers:
+      isGoalYearly: ->
+        @goalType is App.GOALS_TYPES.YEARLY
+
+      isGoalMonthly: ->
+        @goalType is App.GOALS_TYPES.MONTHLY
+
+      isGoalWeekly: ->
+        @goalType is App.GOALS_TYPES.WEEKLY
+
+
   Managment.DeletePromptView = App.Views.ItemView.extend
 
     template: 'goals/managment/templates/delete_prompt'

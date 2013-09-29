@@ -6,8 +6,8 @@
         <label for="goal-type">Type</label>
         <select name="type" id="goal-type" class="medium">
           <option value="YearlyGoal">Yearly</option>
-          <option value="MonthlyGoal">Monthly</option>
-          <option value="WeeklyGoal">Weekly</option>
+          <option value="MonthlyGoal" <%= 'selected' if @isGoalMonthly() %>>Monthly</option>
+          <option value="WeeklyGoal" <%= 'selected' if @isGoalWeekly() %>>Weekly</option>
         </select>
       </div>
     </div>
@@ -25,8 +25,10 @@
     </div>
     <div class="row">
       <div class="large-6 columns">
-        <label for="goal-year">Year</label>
-        <input type="text" name="year" id="goal-year" value="<%= @year %>">
+        <% if @isGoalYearly(): %>
+          <label for="goal-year">Year</label>
+          <input type="text" name="year" id="goal-year" value="<%= @year %>">
+        <% end %>
       </div>
     </div>
     <button class="button secondary" data-type="close" type="button">Cancel</button>

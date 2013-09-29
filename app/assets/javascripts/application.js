@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment.min
 //= require foundation/foundation
 //= require foundation/foundation.forms
 //= require foundation/foundation.reveal

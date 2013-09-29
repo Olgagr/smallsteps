@@ -30,3 +30,4 @@ SmallSteps.module 'GoalsApp.List', (List, App, Backbone, Marionette, $, _) ->
     templateHelpers:
       currentYear   : new Date().getFullYear()
       currentMonth  : new Date().getMonth() + 1
+      currentWeek   : moment().week()

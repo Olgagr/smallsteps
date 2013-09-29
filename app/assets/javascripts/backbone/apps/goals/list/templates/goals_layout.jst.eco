@@ -3,7 +3,7 @@
   <dd class="active"><a href="goals">All</a></dd>
   <dd><a href="goals/<%= @currentYear %>" data-year-number="<%= @currentYear %>">Yearly</a></dd>
   <dd><a href="goals/<%= @currentYear %>/<%= @currentMonth %>" data-year-number="<%= @currentYear %>" data-month-number="<%= @currentMonth %>">Monthly</a></dd>
-  <dd><a href="#">Weekly</a></dd>
+  <dd><a href="goals/<%= @currentYear %>/<%= @currentMonth %>/<%= @currentWeek %>">Weekly</a></dd>
 </dl>
 
 <a href="#" data-add-goal="true" class="button success">Add Goal</a>
