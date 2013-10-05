@@ -26,17 +26,20 @@ class GoalsController < ApplicationController
   end
 
   private
+
   def goal_params
     params.require(:goal).permit(:title, :description, :year, :month, :week, :finished, :goal_id)
   end
 
   def get_goals_list
-    if params[:yearNumber] && params[:monthNumber]
+    if params[:weekNumber]
+      WeeklyGoal.where(year: params[:yearNumber], month: params[:monthNumber], week: params[:weekNumber])
+    elsif params[:yearNumber] && params[:monthNumber]
       MonthlyGoal.where(year: params[:yearNumber], month: params[:monthNumber])
     elsif params[:yearNumber]
       YearlyGoal.where(year: params[:yearNumber])
     else
-      Goal.all
+      WeeklyGoal.where(week: Date.today.cweek)
     end
   end
 

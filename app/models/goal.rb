@@ -4,4 +4,8 @@ class Goal < ActiveRecord::Base
     read_attribute(:finished) || false
   end
 
+  def as_json(options={})
+    {type: type}.merge super
+  end
+
 end

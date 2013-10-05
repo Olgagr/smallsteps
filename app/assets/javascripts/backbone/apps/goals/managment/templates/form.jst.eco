@@ -25,12 +25,26 @@
     </div>
     <div class="row">
       <div class="large-6 columns">
-        <% if @isGoalYearly(): %>
-          <label for="goal-year">Year</label>
-          <input type="text" name="year" id="goal-year" value="<%= @year %>">
-        <% end %>
+        <label for="goal-year">Year</label>
+        <input type="text" name="year" id="goal-year" value="<%= @year %>">
       </div>
     </div>
+    <% if @isGoalMonthly() or @isGoalWeekly(): %>
+      <div class="row">
+        <div class="large-6 columns">
+          <label for="goal-month">Month</label>
+          <input type="text" name="month" id="goal-month" value="<%= @month %>">
+        </div>
+      </div>
+    <% end %>
+    <% if @isGoalWeekly(): %>
+      <div class="row">
+        <div class="large-6 columns">
+          <label for="goal-week">Week</label>
+          <input type="text" name="week" id="goal-week" value="<%= @week %>">
+        </div>
+      </div>
+    <% end %>
     <button class="button secondary" data-type="close" type="button">Cancel</button>
     <button class="button">Save</button>
   </fieldset>

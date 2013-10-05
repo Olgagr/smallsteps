@@ -18,7 +18,12 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
       @$el.foundation('forms')
 
     serializeData: ->
-      _.extend(@model.toJSON(), goalType: @options.goalType)
+      _.defaults(@model.toJSON(),
+        goalType: @options.goalType
+        year    : moment().year()
+        month   : moment().month() + 1
+        week    : moment().week()
+      )
 
     templateHelpers:
       isGoalYearly: ->
