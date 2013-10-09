@@ -19,21 +19,10 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
 
     serializeData: ->
       _.defaults(@model.toJSON(),
-        goalType: @options.goalType
         year    : moment().year()
         month   : moment().month() + 1
         week    : moment().week()
       )
-
-    templateHelpers:
-      isGoalYearly: ->
-        @goalType is App.GOALS_TYPES.YEARLY
-
-      isGoalMonthly: ->
-        @goalType is App.GOALS_TYPES.MONTHLY
-
-      isGoalWeekly: ->
-        @goalType is App.GOALS_TYPES.WEEKLY
 
 
   Managment.DeletePromptView = App.Views.ItemView.extend

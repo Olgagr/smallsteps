@@ -1,9 +1,8 @@
 <dl class="sub-nav" id="goals-nav-region">
   <dt>Goals:</dt>
-  <dd class="active"><a href="goals">Current</a></dd>
-  <dd><a href="goals/<%= @currentYear %>" data-year-number="<%= @currentYear %>">Yearly</a></dd>
-  <dd><a href="goals/<%= @currentYear %>/<%= @currentMonth %>" data-year-number="<%= @currentYear %>" data-month-number="<%= @currentMonth %>">Monthly</a></dd>
-  <dd><a href="goals/<%= @currentYear %>/<%= @currentMonth %>/<%= @currentWeek %>" data-year-number="<%= @currentYear %>" data-month-number="<%= @currentMonth %>" data-week-number="<%= @currentWeek %>">Weekly</a></dd>
+  <dd <%= 'class=active' if @isGoalYearly() %>><a href="goals/<%= @currentYear %>" data-year-number="<%= @currentYear %>">Yearly</a></dd>
+  <dd <%= 'class=active' if @isGoalMonthly() %>><a href="goals/<%= @currentYear %>/<%= @currentMonth %>" data-year-number="<%= @currentYear %>" data-month-number="<%= @currentMonth %>">Monthly</a></dd>
+  <dd <%= 'class=active' if @isGoalWeekly() %>><a href="goals/<%= @currentYear %>/<%= @currentMonth %>/<%= @currentWeek %>" data-year-number="<%= @currentYear %>" data-month-number="<%= @currentMonth %>" data-week-number="<%= @currentWeek %>">Weekly</a></dd>
 </dl>
 
 <a href="#" data-add-goal="true" class="button success">Add Goal</a>

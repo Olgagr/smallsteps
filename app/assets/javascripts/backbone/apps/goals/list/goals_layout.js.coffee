@@ -28,6 +28,7 @@ SmallSteps.module 'GoalsApp.List', (List, App, Backbone, Marionette, $, _) ->
       link.closest('dd').addClass('active')
 
     templateHelpers:
+      _.extend Marionette.View::templateHelpers(),
       currentYear   : moment().year()
       currentMonth  : moment().month() + 1
       currentWeek   : moment().week()
