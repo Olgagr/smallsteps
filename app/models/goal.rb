@@ -4,8 +4,12 @@ class Goal < ActiveRecord::Base
     read_attribute(:finished) || false
   end
 
-  def as_json(options={})
-    {type: type}.merge super
+  def as_json(options = {})
+    super(methods: [:parents_goals], except: [:created_at, :updated_at])
+  end
+
+  def parents_goals
+    nil
   end
 
 end

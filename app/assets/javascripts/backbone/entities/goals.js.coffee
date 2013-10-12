@@ -10,27 +10,23 @@ SmallSteps.module 'Entities', (Entities, App, Backbone, Marionette, $, _) ->
 
     url: '/api/goals'
 
-
+    parse: (response) ->
+      if response[0]?.parents_goals
+        @parentsGoals = response[0].parents_goals
+        response.map (item) -> delete item.parents_goals
+      else
+        @parentsGoals = undefined
+      console.log @parentsGoals
+      response
 
   API =
-    getGoalsList: (goal_range, callback) ->
-      collection = new Entities.Goals
+    getGoalsList: (collection, goal_range, callback) ->
       collection.fetch
         reset: true
         data: goal_range
         success: (collection) ->
-          callback collection
+          callback?(collection)
 
-    getYearlyGoals: (year, callback) ->
-      collection = new Entities.Goals
-      collection.fetch
-        reset: true
-        url: "/api/goals/yearly/#{year}"
-        success: (collection) ->
-          callback collection
+  App.reqres.setHandler 'entities:goals:list', (collection, goal_range, callback) ->
+    API.getGoalsList collection, goal_range, callback
 
-  App.reqres.setHandler 'entities:goals:list', (goal_range, callback) ->
-    API.getGoalsList goal_range, callback
-
-  App.reqres.setHandler 'entities:yearly_goals:list', (year, callback) ->
-    API.getYearlyGoals year, callback

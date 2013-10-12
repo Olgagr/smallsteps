@@ -4,6 +4,7 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
 
     initialize: ->
       {@model, @collection} = @options
+      console.log @collection
 
     manageGoal: ->
       managmentView = @_getFormView(@model)

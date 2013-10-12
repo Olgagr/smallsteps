@@ -27,12 +27,12 @@ SmallSteps.module 'GoalsApp.List', (List, App, Backbone, Marionette, $, _) ->
 
 
     getGoalsList: (goal_range) ->
-      App.request 'entities:goals:list', goal_range, (goals) =>
-        @initializeViews goals
+      collection = new App.Entities.Goals()
+      App.request 'entities:goals:list', collection, goal_range, =>
+        @initializeViews collection
 
     refreshGoalsList: (goal_range) ->
-      App.request 'entities:goals:list', goal_range, (goals) =>
-        @goalsListView.collection.reset goals.models
+      App.request 'entities:goals:list', @goalsListView.collection, goal_range
 
     getLayoutView: (goals) ->
       new List.GoalsLayout
