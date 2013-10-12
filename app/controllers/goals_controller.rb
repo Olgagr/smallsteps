@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    render json: get_goals_list
+    get_goals_list
   end
 
   def create
@@ -31,15 +31,20 @@ class GoalsController < ApplicationController
     params.require(:goal).permit(:title, :description, :year, :month, :week, :finished, :goal_id)
   end
 
+  #todo refactor it!
   def get_goals_list
+    @goals = ''
+    @parents_goals = nil
     if params[:weekNumber]
-      WeeklyGoal.where(year: params[:yearNumber], month: params[:monthNumber], week: params[:weekNumber])
+      @goals = WeeklyGoal.where(year: params[:yearNumber], month: params[:monthNumber], week: params[:weekNumber])
+      @parents_goals = WeeklyGoal.parents_goals(params[:monthNumber])
     elsif params[:yearNumber] && params[:monthNumber]
-      MonthlyGoal.where(year: params[:yearNumber], month: params[:monthNumber])
+      @goals = MonthlyGoal.where(year: params[:yearNumber], month: params[:monthNumber])
+      @parents_goals = MonthlyGoal.parents_goals(params[:yearNumber])
     elsif params[:yearNumber]
-      YearlyGoal.where(year: params[:yearNumber])
+      @goals = YearlyGoal.where(year: params[:yearNumber])
     else
-      WeeklyGoal.where(week: Date.today.cweek)
+      @goals = WeeklyGoal.where(week: Date.today.cweek)
     end
   end
 
