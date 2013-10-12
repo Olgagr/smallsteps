@@ -4,7 +4,6 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
 
     initialize: ->
       {@model, @collection} = @options
-      console.log @collection
 
     manageGoal: ->
       managmentView = @_getFormView(@model)
@@ -28,7 +27,8 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
     _getFormView: (model) ->
       viewModel = model ? new App.Entities.Goal()
       new Managment.FormView
-        model: viewModel
+        model         : viewModel
+        parentsGoals  : @collection.parentsGoals
 
     _getDeletePromptView: (model) ->
       new Managment.DeletePromptView

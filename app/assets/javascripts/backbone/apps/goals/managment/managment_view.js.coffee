@@ -19,9 +19,10 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
 
     serializeData: ->
       _.defaults(@model.toJSON(),
-        year    : moment().year()
-        month   : moment().month() + 1
-        week    : moment().week()
+        year          : moment().year()
+        month         : moment().month() + 1
+        week          : moment().week()
+        parentsGoals  : @options.parentsGoals
       )
 
 

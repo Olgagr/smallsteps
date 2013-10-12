@@ -3,7 +3,7 @@
     <legend>Add New Goal</legend>
     <div class="row">
       <div class="large-12 columns">
-        <label for="goal-type">Type</label>
+        <label for="goal-type">Goal Type</label>
         <select name="type" id="goal-type" class="medium">
           <option value="YearlyGoal">Yearly</option>
           <option value="MonthlyGoal" <%= 'selected' if @isGoalMonthly() %>>Monthly</option>
@@ -11,6 +11,18 @@
         </select>
       </div>
     </div>
+    <% if @parentsGoals: %>
+      <div class="row">
+        <div class="large-12 columns">
+          <label for="goal-parent">Parent goal</label>
+          <select name="goal_id" id="goal-parent">
+            <% for item in @parentsGoals.models: %>
+              <option value="<%= item.get('id') %>" <%= 'selected="selected"' if (item.get('id') is @goal_id) %>><%= item.get('title') %></option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+    <% end %>
     <div class="row">
       <div class="large-12 columns">
         <label for="goal-title">Title</label>
