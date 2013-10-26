@@ -16,6 +16,17 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
 
     onShow: ->
       @$el.foundation('forms')
+      @$('#category-autocomplete').autocomplete(
+        serviceUrl: '/api/categories.json'
+        onSelect: (suggestion) =>
+          @$('#category').val(suggestion.data)
+        transformResult: (response) ->
+          resp = $.parseJSON(response)
+          suggestions: $.map(resp, (item) ->
+            value : item.name
+            data  : item.id
+          )
+      )
 
     serializeData: ->
       _.defaults(@model.toJSON(),

@@ -11,4 +11,5 @@
  *= require_self
  *= require foundation/scss/normalize
  *= require foundation/scss/foundation
+ *= require autocomplete
  */

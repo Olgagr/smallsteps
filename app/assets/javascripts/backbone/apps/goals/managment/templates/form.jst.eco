@@ -57,6 +57,13 @@
         </div>
       </div>
     <% end %>
+    <div class="row">
+      <div class="large-6 columns">
+        <label for="category-autocomplete">Category</label>
+        <input type="text" name="category-autocomplete" id="category-autocomplete">
+        <input type="hidden" name="goal[categories][]" id="category">
+      </div>
+    </div>
     <button class="button secondary" data-type="close" type="button">Cancel</button>
     <button class="button">Save</button>
   </fieldset>

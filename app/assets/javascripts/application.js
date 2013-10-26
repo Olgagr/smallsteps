@@ -16,6 +16,7 @@
 //= require foundation/foundation
 //= require foundation/foundation.forms
 //= require foundation/foundation.reveal
+//= require jquery.autocomplete
 //= require lib/underscore
 //= require lib/backbone
 //= require lib/marionette

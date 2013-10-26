@@ -4,7 +4,7 @@ class WeeklyGoal < Goal
   belongs_to :parent_goal, class_name: 'Goal'
 
   def self.parents_goals(month)
-    @parents_goals ||= MonthlyGoal.where(month: month)
+    MonthlyGoal.where(month: month)
   end
 
 end

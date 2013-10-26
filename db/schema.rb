@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130926164401) do
+ActiveRecord::Schema.define(version: 20131026112746) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "category_goals", force: true do |t|
+    t.integer  "category_id"
+    t.integer  "goal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "category_goals", ["category_id", "goal_id"], name: "index_category_goals_on_category_id_and_goal_id", unique: true, using: :btree
 
   create_table "goals", force: true do |t|
     t.string   "title"

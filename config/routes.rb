@@ -10,6 +10,7 @@ Smallsteps::Application.routes.draw do
 
   scope :api do
     resources :goals
+    resources :categories
   end
 
   match '*path' => 'high_voltage/pages#show', id: 'goals', via: :get
