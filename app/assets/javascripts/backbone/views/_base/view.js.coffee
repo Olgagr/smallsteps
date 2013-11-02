@@ -2,6 +2,9 @@
 
   _.extend Marionette.View::,
 
+    closeModal: ->
+      @$el.foundation('reveal', 'close')
+
     templateHelpers: ->
       type = @getGoalType()
 
