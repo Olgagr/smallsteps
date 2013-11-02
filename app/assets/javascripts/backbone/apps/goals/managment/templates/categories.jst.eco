@@ -1,4 +1,5 @@
 <label for="category-autocomplete">Category</label>
 <input type="text" name="category-autocomplete" id="category-autocomplete">
 <input type="hidden" name="goal[category_ids][]" id="category">
+<ul id="categories-labels" class="inline-lists"></ul>
 

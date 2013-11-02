@@ -19,8 +19,12 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
 
     onShow: ->
       @$el.foundation('forms')
-      @categoriesRegion.show @_getCategoriesView()
+      categoriesView = @_getCategoriesView()
 
+      @listenTo categoriesView, 'categories:category:selected', =>
+        @$('#category-autocomplete').val('')
+
+      @categoriesRegion.show categoriesView
 
 
     serializeData: ->
@@ -32,7 +36,18 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
       )
 
     _getCategoriesView: ->
-      new Managment.CategoriesView()
+      new Managment.CategoriesView
+        collection: new App.Entities.Categories
+
+
+
+  Managment.CategoryView = App.Views.ItemView.extend
+
+    template: 'goals/managment/templates/category'
+
+    tagName: 'li'
+
+    className: 'label'
 
 
   Managment.CategoriesView = App.Views.CompositeView.extend
@@ -41,12 +56,18 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
 
     className: 'large-6 columns'
 
+    itemViewContainer: '#categories-labels'
+
+    itemView: Managment.CategoryView
+
     onShow: ->
       @$('#category-autocomplete').autocomplete(
         serviceUrl: '/api/categories.json'
         onSelect: (suggestion) =>
-
-          @$('#category').val(suggestion.data)
+          @trigger 'categories:category:selected'
+          @collection.add
+            name  : suggestion.value
+            id    : suggestion.data
         transformResult: (response) ->
           resp = $.parseJSON(response)
           suggestions: $.map(resp, (item) ->
