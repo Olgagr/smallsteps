@@ -1,2 +1,2 @@
-<%= @name %> <span>&#215;</span>
+<%= @name %> <span class="delete-category">&#215;</span>
 <input type="hidden" value="<%= @id %>" name="goal[:category_ids][]"/>

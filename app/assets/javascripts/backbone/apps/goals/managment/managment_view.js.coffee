@@ -49,6 +49,9 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
 
     className: 'label'
 
+    events:
+      'click .delete-category' : -> @trigger 'on:click:delete:category'
+
 
   Managment.CategoriesView = App.Views.CompositeView.extend
 
@@ -59,6 +62,10 @@ SmallSteps.module 'GoalsApp.Managment', (Managment, App, Backbone, Marionette, $
     itemViewContainer: '#categories-labels'
 
     itemView: Managment.CategoryView
+
+    initialize: ->
+      @listenTo @, 'itemview:on:click:delete:category', (itemView, model) ->
+        console.log itemView, model
 
     onShow: ->
       @$('#category-autocomplete').autocomplete(
