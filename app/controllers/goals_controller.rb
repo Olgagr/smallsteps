@@ -28,7 +28,7 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.permit(:title, :description, :year, :month, :week, :finished, :goal_id, :categories)
+    params.permit(:title, :description, :year, :month, :week, :finished, :goal_id, :category_ids)
   end
 
   #todo refactor it!
