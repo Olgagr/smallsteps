@@ -41,8 +41,6 @@ ActiveRecord::Schema.define(version: 20131026112746) do
     t.string   "type"
   end
 
-  add_index "goals", ["goal_id"], name: "index_goals_on_goal_id", using: :btree
-
   create_table "steps", force: true do |t|
     t.text     "description"
     t.date     "start_date"
