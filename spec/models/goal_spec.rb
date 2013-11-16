@@ -12,7 +12,7 @@ describe Goal do
 
     it 'returns correctly formated json' do
       parent_goal = stub_model(Goal, id: 1)
-      goal = create(:goal, goal_id: parent_goal.id, month: 11, description: 'Lorem ipsum', id: 2)
+      goal = create(:goal, goal_id: parent_goal.id, month: 11, description: 'Lorem ipsum', id: 2, type: 'MonthlyGoal')
 
       expect(goal.as_json).to eq({"id"=>2, "title"=>"Yearly goal", "description"=>"Lorem ipsum", "year"=>2013, "month"=>11, "week"=>nil, "finished"=>false, "goal_id"=>1})
     end
