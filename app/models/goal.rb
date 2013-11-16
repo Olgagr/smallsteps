@@ -3,6 +3,7 @@ class Goal < ActiveRecord::Base
   has_many :category_goals
   has_many :categories, through: :category_goals
 
+
   def finished
     read_attribute(:finished) || false
   end
