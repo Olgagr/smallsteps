@@ -46,4 +46,40 @@ feature 'goals' do
     end
   end
 
+  scenario 'user can add goal', js: true do
+    within '#goals-nav-region' do
+      click_link 'Yearly'
+    end
+    click_link 'Add Goal'
+    within '#modal-region' do
+      fill_in 'goal-title', with: 'Become well-grounded Rubyist'
+      fill_in 'goal-description', with: 'This is very important goal for me.'
+      click_button 'Save'
+    end
+    within '#goals-content-region' do
+      expect(page).to have_content 'Become well-grounded Rubyist'
+    end
+  end
+
+  scenario 'user can edit goal', js: true do
+    within '#goals-content-region' do
+      click_button 'Edit'
+    end
+    within '#modal-region' do
+      fill_in 'goal-title', with: 'Correct all tests in SmallSteps app'
+      click_button 'Save'
+    end
+    expect(page).to have_content 'Correct all tests in SmallSteps app'
+  end
+
+  scenario 'user can delete a goal', js: true do
+    within '#goals-content-region' do
+      click_button 'Delete'
+    end
+    within '#modal-region' do
+      click_button 'Delete'
+    end
+    expect(page).to have_content 'No goals so far. Go ahead and add a new one!'
+  end
+
 end
