@@ -44,7 +44,7 @@ class GoalsController < ApplicationController
     elsif params[:yearNumber]
       @goals = YearlyGoal.where(year: params[:yearNumber])
     else
-      @goals = WeeklyGoal.where(week: Date.today.cweek)
+      @goals = WeeklyGoal.find_all_from_current_week
     end
   end
 
