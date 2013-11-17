@@ -40,4 +40,5 @@ group :test do
   gem 'selenium-webdriver', '2.33.0'
   gem 'database_cleaner', '1.0.1'
   gem 'launchy', '2.3.0'
+  gem 'timecop', '0.6.3'
 end
