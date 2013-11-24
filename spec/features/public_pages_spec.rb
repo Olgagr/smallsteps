@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Public pages' do
 
-  scenario 'user can visit home page' do
+  xscenario 'user can visit home page' do
     visit root_path
     expect(page).to have_content 'Welcome! This is small steps app.'
   end
@@ -39,7 +39,7 @@ feature 'Public pages' do
     within '.title-area .name' do
       click_link 'SmallSteps'
     end
-    expect(page).to have_content 'Welcome! This is small steps app.'
+    expect(current_path).to eq root_path
   end
 
 end

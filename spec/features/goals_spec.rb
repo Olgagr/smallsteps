@@ -82,4 +82,13 @@ feature 'goals' do
     expect(page).to have_content 'No goals so far. Go ahead and add a new one!'
   end
 
+  scenario 'user can set goal as finished', js: true do
+    within '#goals-content-region' do
+      check 'finished'
+      expect(page).to have_css '.finished'
+      expect(page).to have_css 'button[data-action="delete"][disabled]'
+      expect(page).to have_css 'button[data-action="edit"][disabled]'
+    end
+  end
+
 end
