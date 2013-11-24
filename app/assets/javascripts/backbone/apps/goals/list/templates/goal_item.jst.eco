@@ -1,4 +1,4 @@
-<input type="checkbox" name="finished" <%= 'checked' if @finished %> class="inline">
-<button class="tiny button alert" data-action="delete">Delete</button>
-<button class="tiny button secondary" data-action="edit">Edit</button>
-<%= @title %>
+<input type="checkbox" name="finished" class="inline" data-action="finished" <%= 'checked' if @finished %>>
+<button class="tiny button alert" data-action="delete" <%= 'disabled' if @finished %>>Delete</button>
+<button class="tiny button secondary" data-action="edit" <%= 'disabled' if @finished %>>Edit</button>
+<span class="label-title"><%= @title %></span>

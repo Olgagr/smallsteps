@@ -1,0 +1,12 @@
+.goals-items {
+  list-style: none;
+  .finished {
+    .label-title {
+      color: #ccc;
+      text-decoration: line-through;
+    }
+    button {
+      opacity: 0.5;
+    }
+  }
+}
