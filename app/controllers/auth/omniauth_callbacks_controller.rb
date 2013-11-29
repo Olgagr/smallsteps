@@ -11,8 +11,8 @@ class Auth::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   private
 
   def find_for_provider_oauth(provider)
-    auth = request.env['omniauth.auth']
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    @auth = request.env['omniauth.auth']
+    user = User.where(:provider => @auth.provider, :uid => @auth.uid).first
     unless user
       user = self.send("create_#{provider}_user")
     end
@@ -28,9 +28,9 @@ class Auth::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def create_facebook_user
     User.create(
-        provider: auth.provider,
-        uid: auth.uid,
-        username: auth.info.email,
+        provider: @auth.provider,
+        uid: @auth.uid,
+        username: @auth.info.email,
         password: Devise.friendly_token[0, 20]
     )
   end
@@ -41,9 +41,9 @@ class Auth::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def create_twitter_user
     User.create(
-        provider: auth.provider,
-        uid: auth.uid,
-        username: auth.info.name,
+        provider: @auth.provider,
+        uid: @auth.uid,
+        username: @auth.info.name,
         password: Devise.friendly_token[0, 20]
     )
   end
