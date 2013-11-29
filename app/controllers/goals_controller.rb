@@ -7,7 +7,7 @@ class GoalsController < ApplicationController
   end
 
   def create
-    goal = params['type'].constantize.new(goal_params)
+    goal = current_user.goals.build(goal_params)
     if goal.save
       render json: goal
     end
@@ -28,7 +28,7 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.require(:goal).permit(:title, :description, :year, :month, :week, :finished, :goal_id, :category_ids)
+    params.require(:goal).permit(:title, :description, :year, :month, :week, :finished, :goal_id, :category_ids, :type)
   end
 
   #todo refactor it!
@@ -36,15 +36,15 @@ class GoalsController < ApplicationController
     @goals = ''
     @parents_goals = nil
     if params[:weekNumber]
-      @goals = WeeklyGoal.where(year: params[:yearNumber], month: params[:monthNumber], week: params[:weekNumber])
-      @parents_goals = WeeklyGoal.parents_goals(params[:monthNumber])
+      @goals = current_user.weekly_goals.where(year: params[:yearNumber], month: params[:monthNumber], week: params[:weekNumber])
+      @parents_goals = current_user.weekly_goals.parents_goals(params[:monthNumber])
     elsif params[:yearNumber] && params[:monthNumber]
-      @goals = MonthlyGoal.where(year: params[:yearNumber], month: params[:monthNumber])
-      @parents_goals = MonthlyGoal.parents_goals(params[:yearNumber])
+      @goals = current_user.monthly_goals.where(year: params[:yearNumber], month: params[:monthNumber])
+      @parents_goals = current_user.monthly_goals.parents_goals(params[:yearNumber])
     elsif params[:yearNumber]
-      @goals = YearlyGoal.where(year: params[:yearNumber])
+      @goals = current_user.yearly_goals.where(year: params[:yearNumber])
     else
-      @goals = WeeklyGoal.find_all_from_current_week
+      @goals = current_user.weekly_goals.find_all_from_current_week
     end
   end
 

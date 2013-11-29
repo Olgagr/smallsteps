@@ -1,5 +1,6 @@
 class Goal < ActiveRecord::Base
 
+  belongs_to :user
   has_many :category_goals
   has_many :categories, through: :category_goals
 

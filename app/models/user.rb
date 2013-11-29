@@ -1,5 +1,10 @@
 class User < ActiveRecord::Base
 
+  has_many :goals
+  has_many :yearly_goals, class_name: 'YearlyGoal'
+  has_many :monthly_goals, class_name: 'MonthlyGoal'
+  has_many :weekly_goals, class_name: 'WeeklyGoal'
+
   attr_accessor :login
 
   devise :omniauthable, :omniauth_providers => [:facebook, :twitter]

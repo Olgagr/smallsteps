@@ -4,9 +4,9 @@ feature 'goals' do
 
   background do
     @today = Time.now
-    week_number = Date.today.sunday? ? Date.today.cweek+1 : Date.today.cweek
-    create(:goal, type: 'WeeklyGoal', year: @today.year, month: @today.month, week: week_number, title: 'Correct tests in SmallSteps app')
     @user = create(:user)
+    week_number = Date.today.sunday? ? Date.today.cweek+1 : Date.today.cweek
+    create(:goal, type: 'WeeklyGoal', year: @today.year, month: @today.month, week: week_number, title: 'Correct tests in SmallSteps app', user: @user)
     sign_in @user
     visit pages_goals_path
   end
@@ -18,7 +18,7 @@ feature 'goals' do
   end
 
   scenario 'user can see yearly goals', js: true do
-    create(:goal, year: @today.year, title: 'Become well-grounded Rubyist')
+    create(:goal, year: @today.year, title: 'Become well-grounded Rubyist', user: @user)
     within '#goals-nav-region' do
       click_link 'Yearly'
     end
@@ -28,7 +28,7 @@ feature 'goals' do
   end
 
   scenario 'user can see monthly goals', js: true do
-    create(:goal, type: 'MonthlyGoal', year: @today.year, month: @today.month, title: 'Read Rebuilding Rails')
+    create(:goal, type: 'MonthlyGoal', year: @today.year, month: @today.month, title: 'Read Rebuilding Rails', user: @user)
     within '#goals-nav-region' do
       click_link 'Monthly'
     end

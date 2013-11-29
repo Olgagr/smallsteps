@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131026112746) do
+ActiveRecord::Schema.define(version: 20131129142500) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -39,7 +39,10 @@ ActiveRecord::Schema.define(version: 20131026112746) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.integer  "user_id"
   end
+
+  add_index "goals", ["user_id"], name: "index_goals_on_user_id", using: :btree
 
   create_table "steps", force: true do |t|
     t.text     "description"

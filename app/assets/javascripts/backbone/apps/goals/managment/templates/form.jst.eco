@@ -4,7 +4,7 @@
     <div class="row">
       <div class="large-12 columns">
         <label for="goal-type">Goal Type</label>
-        <select name="type" id="goal-type" class="medium">
+        <select name="goal[type]" id="goal-type" class="medium">
           <option value="YearlyGoal">Yearly</option>
           <option value="MonthlyGoal" <%= 'selected' if @isGoalMonthly() %>>Monthly</option>
           <option value="WeeklyGoal" <%= 'selected' if @isGoalWeekly() %>>Weekly</option>
